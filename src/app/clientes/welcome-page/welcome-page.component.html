@@ -28,5 +28,5 @@
             <input ngModel #ingresoForm type="text" placeholder="$ ingreso" value="{{inputIngreso == null || inputIngreso == undefined ? '' : inputIngreso.value || ''}}" disabled>
         </label>
     </div>
-    <button class="blue-button" >Calcular tarjeta sugerida</button>
+    <button (click)="CalcularTarjeta()" class="blue-button" >Calcular tarjeta sugerida</button>
 </div>

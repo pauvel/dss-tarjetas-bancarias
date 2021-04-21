@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientsListResponse } from 'src/app/interfaces/clientListResponse.interface';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -10,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class WelcomePageComponent implements OnInit {
 
   public clientesActuales: ClientsListResponse[] = [];
-  public clienteSeleccionado: ClientsListResponse | null;
+  public clienteSeleccionado: ClientsListResponse | null = null;
 
   @ViewChild('curpForm') inputCurp: HTMLInputElement;
   @ViewChild('nombreForm') inputNombre: HTMLInputElement;
@@ -19,7 +20,8 @@ export class WelcomePageComponent implements OnInit {
   @ViewChild('ingresoForm') inputIngreso: HTMLInputElement;
   @ViewChild('estadoCivilForm') inputCivil: HTMLInputElement;
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.apiService.ObtenerClientes()
@@ -39,7 +41,16 @@ export class WelcomePageComponent implements OnInit {
     this.inputHijos.value = cliente.hijos.toString();
     this.inputIngreso.value = cliente.ingresosMensuales.toString();
     this.inputCivil.value = cliente.idEstadoCivilNavigation.tipo || 'Sin identificar';
+    this.clienteSeleccionado = cliente;
     console.log(`Curp seleccionada ${this.inputCurp.value}`);
+  }
+
+  CalcularTarjeta():void{
+    if(this.clienteSeleccionado == null){
+      alert('Seleccione un cliente primero.');
+      return;
+    }
+    this.router.navigate([`cliente/${this.clienteSeleccionado.id}/nueva-solicitud`]);
   }
 
 }

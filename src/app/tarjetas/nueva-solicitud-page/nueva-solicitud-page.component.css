@@ -1,0 +1,44 @@
+.solicitud-title{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.solicitud-title h1{
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+}
+.solicitud-title img{
+    width: 35em;
+    height: 15em;
+}
+
+.solicitud-body{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.solicitud-body span {
+    color: royalblue;
+    font-size: 10em;
+    border-bottom: 1px solid black;
+}
+
+.solicitud-body label{
+    font-size: 2em;
+    color: brown;
+}
+
+.solicitud-body ol li{
+    font-size: 1.5em;
+    color: black;
+}
+
+.solicitud-body ol{
+    padding: 20px;
+}
