@@ -1,1 +1,32 @@
-<p>welcome-page works!</p>
+<div class="welcome-bg">
+    <label for="clienteSelect" *ngIf="clientesActuales.length > 0; else noClientes"> Seleccione un cliente
+        <select name="clienteSelect" id="clienteSelect" #cls (change)="changeOption( cls.value )">
+            <option value="0">Seleccionar cliente</option>
+            <option *ngFor="let cliente of clientesActuales" value="{{cliente.id}}">{{cliente.nombreCompleto}}</option>
+        </select>
+    </label>
+    <ng-template #noClientes>
+        <label for="">Cargando clientes espere...</label>
+    </ng-template>
+    <div class="form">
+        <label for="curp">CURP
+            <input ngModel #curpForm type="text" placeholder="CURP" value="{{inputCurp == null || inputCurp == undefined ? '' : inputCurp.value || ''}}" disabled>
+        </label>
+        <label for="">Nombre del cliente
+            <input ngModel #nombreForm type="text" placeholder="Nombre del cliente" value="{{inputNombre == null || inputNombre == undefined ? '' : inputNombre.value || ''}}" disabled>
+        </label>
+        <label for="">Domicilio Actual
+            <input ngModel #domicilioForm type="text" placeholder="Domicilio" value="{{inputDomicilio == null || inputDomicilio == undefined ? '' : inputDomicilio.value || ''}}" disabled>
+        </label>
+        <label for="">Estado civil
+            <input ngModel #estadoCivilForm type="text" placeholder="Estado Civil" value="{{inputCivil == null || inputCivil == undefined ? '' : inputCivil.value || ''}}" disabled>
+        </label>
+        <label for="">Cuantos hijos tiene
+            <input ngModel #hijosForm type="text" placeholder="Hijos" value="{{inputHijos == null || inputHijos == undefined ? '' : inputHijos.value || ''}}" disabled>
+        </label>
+        <label for="">Ingreso Mensual
+            <input ngModel #ingresoForm type="text" placeholder="$ ingreso" value="{{inputIngreso == null || inputIngreso == undefined ? '' : inputIngreso.value || ''}}" disabled>
+        </label>
+    </div>
+    <button class="blue-button" >Calcular tarjeta sugerida</button>
+</div>
