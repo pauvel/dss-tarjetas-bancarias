@@ -1,4 +1,6 @@
 <div class="welcome-bg">
+    <button (click)="NuevoCliente()" class="green-button">Nuevo cliente</button>
+    <h1>---------------------- O ----------------------</h1>
     <label for="clienteSelect" *ngIf="clientesActuales.length > 0; else noClientes"> Seleccione un cliente
         <select name="clienteSelect" id="clienteSelect" #cls (change)="changeOption( cls.value )">
             <option value="0">Seleccionar cliente</option>
@@ -18,14 +20,14 @@
         <label for="">Domicilio Actual
             <input ngModel #domicilioForm type="text" placeholder="Domicilio" value="{{inputDomicilio == null || inputDomicilio == undefined ? '' : inputDomicilio.value || ''}}" disabled>
         </label>
-        <label for="">Estado civil
+        <label for="">Estado civil: "CASADO" ó "SOLTERO"
             <input ngModel #estadoCivilForm type="text" placeholder="Estado Civil" value="{{inputCivil == null || inputCivil == undefined ? '' : inputCivil.value || ''}}" disabled>
         </label>
         <label for="">Cuantos hijos tiene
-            <input ngModel #hijosForm type="text" placeholder="Hijos" value="{{inputHijos == null || inputHijos == undefined ? '' : inputHijos.value || ''}}" disabled>
+            <input ngModel #hijosForm type="number" placeholder="Hijos" value="{{inputHijos == null || inputHijos == undefined ? '' : inputHijos.value || ''}}" disabled>
         </label>
         <label for="">Ingreso Mensual
-            <input ngModel #ingresoForm type="text" placeholder="$ ingreso" value="{{inputIngreso == null || inputIngreso == undefined ? '' : inputIngreso.value || ''}}" disabled>
+            <input ngModel #ingresoForm type="number" placeholder="$ ingreso" value="{{inputIngreso == null || inputIngreso == undefined ? '' : inputIngreso.value || ''}}" disabled>
         </label>
     </div>
     <button (click)="CalcularTarjeta()" class="blue-button" >Calcular tarjeta sugerida</button>

@@ -36,3 +36,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-shadow: 0px 0px 1px black;
 }
+
+.editable-input{
+    background-color: rgba(0, 128, 0, 0.394);
+    color: blue;
+    text-transform: uppercase;
+}
