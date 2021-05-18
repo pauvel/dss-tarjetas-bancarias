@@ -1,1 +1,22 @@
-<p>prueba-ejecucion works!</p>
+<div class="main">
+      <div class="content" *ngIf="cliente && tarjeta; else noCard">
+          <div class="card">
+              <span>Tarjeta:</span>{{tarjeta.descripcion}}
+              <span>Limite de credito:</span>${{tarjeta.limiteCredito}}
+              <span>Tasa interes anual:</span>{{tarjeta.tasaInteresAnual}}%
+          </div>
+          <h1>¿A cuantos meses requiere el monto total de su tarjeta?</h1>
+          <div class="buttons-list">
+              <button (click)="executeCard(12)" class="blue-button">12 meses</button>
+              <button (click)="executeCard(6)" class="blue-button">6 meses</button>
+              <button (click)="executeCard(3)" class="blue-button">3 meses</button>
+          </div>
+          <div class="payslip" *ngIf="ejecucion; else noCard">
+              <span>Usted paga ${{ejecucion.total}}</span>
+              <span>Mensualidades de ${{ejecucion.mensualidad}}</span>
+          </div>
+      </div>
+      <ng-template #noCard>
+          <h1>Cargando...</h1>
+      </ng-template>
+</div>
