@@ -12,7 +12,7 @@
             <li>Limite credicticio: ${{solicitudGenerada.idTarjetaCreditoNavigation.limiteCredito}}</li>
             <li>Ingreso acumulable minimo: ${{solicitudGenerada.idTarjetaCreditoNavigation.minIngresoAcumulable}}</li>
         </ol>
-        <button class="blue-button">Ejecutar prueba de credito</button>
+        <button (click)="ejecutarPrueba()" class="blue-button">Ejecutar prueba de credito</button>
     </div>
 </div>
 <ng-template #noContent>
