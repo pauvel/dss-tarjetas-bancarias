@@ -1,6 +1,6 @@
 <div class="solicitud-content" *ngIf="solicitudGenerada; else noContent">
     <div class="solicitud-title">
-        <img src="https://www.pngkey.com/png/full/15-155827_congratulations-png-graphic-black-and-white-stock-congratulations.png" alt="">
+        <img src="../../../assets/congratulatios.png" alt="">
         <h1>{{solicitudGenerada.idClienteNavigation.nombreCompleto}}</h1>
     </div>
     <div class="solicitud-body">
@@ -12,7 +12,7 @@
             <li>Limite credicticio: ${{solicitudGenerada.idTarjetaCreditoNavigation.limiteCredito}}</li>
             <li>Ingreso acumulable minimo: ${{solicitudGenerada.idTarjetaCreditoNavigation.minIngresoAcumulable}}</li>
         </ol>
-        <button class="blue-button">Ejecutar prueba de credito</button>
+        <button (click)="ejecutarPrueba()" class="blue-button">Ejecutar prueba de credito</button>
     </div>
 </div>
 <ng-template #noContent>

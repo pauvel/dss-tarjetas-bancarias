@@ -24,3 +24,23 @@
     cursor: pointer;
     color: white;
 }
+.green-button{
+    margin: 10px;
+    padding: 9px;
+    color: white;
+    background: rgb(7, 144, 28);
+    font-size: 2em;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.green-button:hover{
+    color: rgba(0, 0, 0, 0.476);
+    cursor: pointer;
+}
+
+.green-button:active{
+    cursor: pointer;
+    color: white;
+}
